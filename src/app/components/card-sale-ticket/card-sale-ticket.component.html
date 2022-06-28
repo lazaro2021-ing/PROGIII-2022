@@ -1,0 +1,44 @@
+<mat-card >
+
+    <mat-card-header>
+        <mat-card-title >
+           
+            <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="crud==true">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="editTicket(ticket)" >
+                    <mat-icon>edit</mat-icon>
+                    <span>Editar</span>
+                </button>
+                <button mat-menu-item >
+                    <mat-icon>delete</mat-icon>
+                    <span>Borrar</span>
+                </button>
+            </mat-menu>
+
+        </mat-card-title>
+       
+ 
+   
+        <mat-expansion-panel (closed)="openPanelChange()" (opened)="openPanelChange()">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <strong>Ticket: </strong> {{ticket.code}}
+                    <strong>Fecha: </strong> {{ticket.date|date}}
+                    <strong>Monto: </strong> {{ticket.total|currency}}
+                </mat-panel-title>
+                <mat-panel-description>
+                     <span *ngIf="innerWidth>1100"></span> 
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <app-table-ticket-details *ngIf="ticketDetails"  [ticketDetails]="ticketDetails">
+
+            </app-table-ticket-details>
+            
+           
+        </mat-expansion-panel>
+       
+    </mat-card-header>
+    
+</mat-card>

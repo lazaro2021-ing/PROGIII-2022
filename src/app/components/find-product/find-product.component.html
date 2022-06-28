@@ -1,0 +1,27 @@
+
+<form   [formGroup]="find_options">
+                <mat-form-field   >
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="name"  (input)="findProduct()">
+                </mat-form-field>
+        
+                <mat-form-field >
+                    <mat-label>Codigo</mat-label>
+                    <input matInput formControlName="code" (input)="findProduct()">
+                </mat-form-field>
+           
+                <mat-form-field >
+                        <mat-label>Tipo</mat-label>
+                        <mat-select (selectionChange)="typeProductSelect($event)" formControlName="type">
+                          <mat-option *ngFor="let item of typesProduct" [value]="item.id">
+                            {{item.type}}
+                          </mat-option>
+                        </mat-select>
+                </mat-form-field>
+           
+                <button mat-button *ngIf="crud==true" (click)="openDialogAddProduct()" >
+                  <mat-icon>add</mat-icon>
+                </button>
+
+            </form>
+           

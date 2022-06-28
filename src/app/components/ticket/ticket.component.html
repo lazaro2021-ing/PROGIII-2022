@@ -1,0 +1,28 @@
+<mat-card class="card" *ngIf="total>0">
+
+    <mat-card-header>
+        <mat-card-title>TICKET #{{code}}</mat-card-title>
+        <mat-card-subtitle>Total: {{total|currency}}</mat-card-subtitle>
+        <mat-card-subtitle>Cliente: {{client_code}}
+            <button mat-button (click)="openDialog()">
+                <mat-icon>account_circle</mat-icon>
+            </button>
+        </mat-card-subtitle>
+
+    </mat-card-header>
+    
+    <mat-card-content>
+
+        <app-card-ticket *ngFor="let product of ticket_items|slice:4*paginator.pageIndex:4*(paginator.pageIndex+1)" [product]="product"
+            (updateTicketClick)="updateTicket($event)">
+        </app-card-ticket>
+    </mat-card-content>
+
+
+
+    <button mat-raised-button color="primary" (click)="confirmSell()" class="confirmar">Confirmar Venta</button>
+
+    <mat-paginator  #paginator [length]="ticket_items.length//4" [pageSize]="4" >
+    </mat-paginator>
+
+</mat-card>

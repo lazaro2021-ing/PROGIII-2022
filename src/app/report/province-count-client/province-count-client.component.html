@@ -1,0 +1,28 @@
+<h1>
+    Mapa de Clientes
+</h1> 
+
+<div class="control-map">
+
+    <mat-slide-toggle #slide class="example-margin" [color]="color" [checked]="checked" [disabled]="disabled">
+        Referencias
+    </mat-slide-toggle>
+
+    <mat-slider disabled="false" invert="false" max="2" min="0.1" step="0.01" thumbLabel="false"
+        [(ngModel)]="factor_radio" vertical="false">
+    </mat-slider>
+</div>
+
+<ngui-map zoom="4.7" center="-39.63939400,-63.69306900" mapTypeId="terrain" stylers='[ { "color": "#99FF33" }]'>
+
+
+    <circle *ngFor="let pos of provincias" [center]="{lat:-pos.lat[0]-pos.lat[1]/60,lng:-pos.lng[0]-pos.lng[1]/60}"
+        [strokeColor]="'#FF0000'" [strokeOpacity]="10" [strokeWeight]="2" [editable]="false"
+        [radius]="pos.value*factor_radio" draggable="false" [content]="pos.name">
+    </circle>
+
+    <marker #marker *ngFor="let pos of provincias"
+        [position]="{lat:-pos.lat[0]-pos.lat[1]/60,lng:-pos.lng[0]-pos.lng[1]/60}" draggable="false" [title]="pos.label"
+        [visible]="slide.checked"></marker>
+
+</ngui-map>

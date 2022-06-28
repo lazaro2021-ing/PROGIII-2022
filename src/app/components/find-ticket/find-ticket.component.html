@@ -1,0 +1,35 @@
+<form >
+
+
+    <mat-form-field>
+        <mat-label>Ingresar un rango de fechas</mat-label>
+        <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+            <input matStartDate formControlName="start" placeholder="Start date">
+            <input matEndDate formControlName="end" placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+
+        <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Fecha de inicio invalida.</mat-error>
+        <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Fecha de fin invalida.</mat-error>
+        <mat-error
+            *ngIf="range.controls.start && range.controls.start.invalid && range.controls.start.hasError('required')">
+            Obligatorio.</mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field [formGroup]="range">
+        <mat-label>N° DOCUMENTO</mat-label>
+        <input matInput formControlName="document_number">
+        <mat-error
+            *ngIf="range.controls.document_number&& range.controls.document_number.invalid && range.controls.document_number.hasError('required')">
+            Obligatorio.</mat-error>
+
+    </mat-form-field>
+
+    <button mat-button (click)="findTickets()" [disabled]="!range.valid">
+        <mat-icon>search</mat-icon>
+    </button>
+
+
+</form>

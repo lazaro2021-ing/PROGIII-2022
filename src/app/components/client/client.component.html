@@ -1,0 +1,19 @@
+<div >
+    
+    <mat-toolbar  [ngClass]="{'mat-toolbar-2':father==='dialog'}" >
+        <span routerLink="" *ngIf="is_client==true">Buscar Cliente</span>
+        <span routerLink="" *ngIf="is_supplier==true">Buscar Proveedor</span>
+        <span class="spacer">
+        </span>
+    </mat-toolbar>
+    <ng-container>
+        <app-find-client (findClientClick)="findClient($event)" [is_client]="is_client" [is_supplier]="is_supplier" [ngClass]="{'app-find-client-2':father==='dialog'}">
+
+        </app-find-client>
+        <app-card-client *ngFor="let client of clients|slice:0:10;" [crud]="crud" [client]="client" [father]="father"
+            [is_client]="is_client" [is_supplier]="is_supplier">
+
+        </app-card-client>
+        <button mat-raised-button color="primary" mat-dialog-close *ngIf="father==='dialog'">Cerrar</button>
+    </ng-container>
+</div>

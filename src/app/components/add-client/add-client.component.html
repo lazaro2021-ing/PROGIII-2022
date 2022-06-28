@@ -1,0 +1,153 @@
+
+<mat-toolbar>
+    <span routerLink="" *ngIf="is_client==true && is_update==false">Crear Cliente</span>
+    <span routerLink="" *ngIf="is_supplier==true && is_update==false">Crear Proveedor</span>
+    <span routerLink="" *ngIf="is_client==true && is_update==true">Actualizar Cliente</span>
+    <span routerLink="" *ngIf="is_supplier==true && is_update==true">Actualizar Proveedor</span>
+
+    <span class="spacer">
+
+    </span>
+</mat-toolbar>
+
+<form (ngSubmit)="save()" [formGroup]="formClient">
+    <table>
+        <tr>
+            <td>
+                <mat-form-field>
+                    <mat-label>Nombre Completo</mat-label>
+                    <input matInput formControlName="name">
+                    <mat-error *ngIf="name && name.invalid && name.hasError('required')">Obligatorio.</mat-error>
+                    <mat-error *ngIf="name && name.invalid && name.hasError('pattern')">Solo puede contener letras.</mat-error>
+                    <mat-error *ngIf="name && name.invalid && name.hasError('minlength')">Tiene que ser mayor a 10.</mat-error>
+                    <mat-error *ngIf="name && name.invalid && name.hasError('maxlength')">Tiene que ser menor a 100.</mat-error>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field>
+                    <mat-label>Número Doc.</mat-label>
+                    <input matInput  formControlName="document_number">
+                    <mat-error *ngIf="document_number && document_number.invalid && document_number.hasError('required')">Obligatorio.</mat-error>
+                    <mat-error *ngIf="document_number && document_number.invalid && document_number.hasError('pattern')">Solo puede contener números.</mat-error>
+                    <mat-error *ngIf="document_number && document_number.invalid && document_number.hasError('maxlength')">Tiene que ser menor a 10.</mat-error>
+                </mat-form-field>
+
+            </td>
+            <td>
+                <mat-form-field>
+                    <mat-label>Tipo</mat-label>
+                    <mat-select  (selectionChange)="typeDoumentSelect($event)" [formControlName]="'document_type'">
+                        <mat-option  *ngFor="let doc_type of document_type_list " [value]="doc_type.type">
+                            {{doc_type.type}}
+                        </mat-option>
+                       
+                    </mat-select>
+                </mat-form-field>
+            </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input matInput  formControlName="email">
+                        <mat-error *ngIf="email && email.invalid && email.hasError('required')">Email es obligatorio.</mat-error>
+                        <mat-error *ngIf="email && email.invalid && email.hasError('email')">Email no valido.</mat-error>
+                    </mat-form-field>
+                </td>
+               <td>
+          
+                <mat-form-field>
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput  formControlName="telephone">
+                    <mat-error *ngIf="telephone && telephone.invalid && telephone.hasError('required')">Obligatorio.</mat-error>
+                    <mat-error *ngIf="telephone && telephone.invalid && telephone.hasError('pattern')">Solo puede contener números.</mat-error>
+                    <mat-error *ngIf="telephone && telephone.invalid && telephone.hasError('maxlength')">Tiene que ser menor a 50.</mat-error>
+                </mat-form-field>
+            </td>
+            </tr>
+           
+            <tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Calle</mat-label>
+                        <input matInput  formControlName="street">
+                        <mat-error *ngIf="street && street.invalid && street.hasError('pattern')">Solo  letras y número.</mat-error>
+                        <mat-error *ngIf="street && street.invalid && street.hasError('required')">Obligatorio.</mat-error>
+                        <mat-error *ngIf="street && street.invalid && street.hasError('maxlength')">Tiene que ser menor a 50.</mat-error>
+                    </mat-form-field>
+                </td>
+                
+         
+                <td>
+                    <mat-form-field>
+                        <mat-label>Número</mat-label>
+                        <input matInput  formControlName="number">
+                        <mat-error *ngIf="number && number.invalid && number.hasError('pattern')">Solo  puede contener número.</mat-error>
+                        <mat-error *ngIf="number && number.invalid && number.hasError('required')">Obligatorio.</mat-error>
+
+                    </mat-form-field>
+                </td>
+               
+          
+                <td>
+                    <mat-form-field>
+                        <mat-label>Piso</mat-label>
+                        <input matInput  formControlName="floor">
+                    </mat-form-field>
+                </td>
+                
+           
+                <td>
+                    <mat-form-field>
+                        <mat-label>Apartamento</mat-label>
+                        <input matInput  formControlName="apartment">
+                    </mat-form-field>
+                </td>
+                
+            </tr>
+           
+            <td>
+               
+                <mat-form-field>
+                    <mat-label>Provincia</mat-label>
+                    <mat-select (selectionChange)="changeProvince($event.value)" [formControlName]="'province'">
+                        <mat-option *ngFor="let province of provinces" [value]="province.id">
+                            {{province.name}}
+                        </mat-option>
+
+                    </mat-select>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field>
+                    <mat-label>Departamento</mat-label>
+                    <mat-select (selectionChange)="changeState($event.value)" [formControlName]="'state'">
+                        <mat-option *ngFor="let state of states" [value]="state.id" >
+                            {{state.name}}
+                        </mat-option>
+
+                    </mat-select>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field>
+                    <mat-label>Ciudad</mat-label>
+                    <mat-select (selectionChange)="changeCity($event.value)"  [formControlName]="'city'">
+                        <mat-option *ngFor="let city of cities" [value]="city.id">
+                            {{city.name}}
+                        </mat-option>
+
+                    </mat-select>
+                </mat-form-field>
+            </td>
+    
+</table>
+
+
+
+<button mat-raised-button color="primary" [disabled]="!formClient.valid" *ngIf="is_client==true && is_update==false">Guardar Cliente</button>
+<button mat-raised-button color="primary" [disabled]="!formClient.valid" *ngIf="is_supplier==true && is_update==false">Guardar Proveedor</button>
+<button mat-raised-button color="primary" [disabled]="!formClient.valid" *ngIf="is_client==true && is_update==true">Actualizar Cliente</button>
+<button mat-raised-button color="primary" [disabled]="!formClient.valid" *ngIf="is_supplier==true && is_update==true">Actualizar Proveedor</button>
+<button mat-raised-button color="primary"  mat-dialog-close>Cerrar</button>
+</form>

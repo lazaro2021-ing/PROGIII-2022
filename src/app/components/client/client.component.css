@@ -1,0 +1,43 @@
+app-find-client{
+    margin-top: 10px !important;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    width: 40%;
+    background: #f5f5f5;
+  
+}
+
+
+.app-find-client-2{
+    margin-top: 10px !important;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    width: 100%;
+    background: #f5f5f5;
+  
+}
+
+button{
+    display: flex;
+    float: right;
+}
+
+.mat-toolbar-2{
+    margin-top: 10px !important;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    width: 100%;
+}
+
+mat-toolbar{
+    margin-top: 10px !important;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    width: 40%;
+}
+
+

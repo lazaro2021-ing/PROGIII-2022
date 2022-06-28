@@ -1,0 +1,20 @@
+<h1>
+    Informe de General de Ganancias {{year_selected}}
+</h1> 
+
+<div>
+    
+    <mat-button-toggle-group>
+        <mat-button-toggle mat-stroked-button color *ngFor="let year of years" (click)="profitYear(year)">{{year}}</mat-button-toggle>
+    </mat-button-toggle-group>
+    <div>
+        <div>
+            <div style="display: block">
+                <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="barChartType">
+                    
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>
+

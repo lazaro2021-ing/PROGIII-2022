@@ -1,0 +1,40 @@
+mat-drawer{
+    width: 200px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+
+.arrow{
+ position: absolute;
+ margin-top: 350px;
+  z-index:3;  
+margin-left: 10px;
+transform: scale(2.5);
+color: rgb(182, 182, 182);}
+
+mat-drawer-content{
+    height: 1200px;
+   
+}
+
+.back{
+  margin-left: 20px;
+  
+}
+button{
+    width: 100%;
+    margin-top: 3px;
+}
+mat-spinner{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 300px;
+}
+
+
+
+
+

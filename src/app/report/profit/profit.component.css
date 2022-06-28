@@ -1,0 +1,16 @@
+canvas{
+    width: 1000px  !important;
+    height: 600px  !important;
+    margin-left: 50px;
+margin-top: 50px;
+}
+
+mat-button-toggle-group{
+    margin-left: 50px;
+}
+
+h1{
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-image: linear-gradient(
+  0deg,
+  hsl(240deg 4% 89%) 0%,
+  hsl(240deg 18% 87%) 8%,
+  hsl(239deg 29% 86%) 14%,
+  hsl(238deg 37% 84%) 19%,
+  hsl(238deg 45% 83%) 25%,
+  hsl(237deg 50% 81%) 32%,
+  hsl(237deg 55% 79%) 40%,
+  hsl(236deg 59% 77%) 52%,
+  hsl(235deg 63% 76%) 70%,
+  hsl(234deg 66% 74%) 100%
+);
+}
+
+@import '~animate.css/animate.min.css'
+

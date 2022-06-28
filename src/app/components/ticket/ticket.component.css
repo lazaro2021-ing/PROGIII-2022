@@ -1,0 +1,26 @@
+mat-card-header{
+    background-color: rgb(190, 188, 188);
+    border-radius: 10px;
+    margin: 0px;
+}
+
+mat-card-title{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+mat-card-subtitle{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+mat-card{
+    padding-bottom: 20px;
+}
+.confirmar{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}

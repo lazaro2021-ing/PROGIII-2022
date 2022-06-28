@@ -1,0 +1,19 @@
+
+<mat-drawer-container class="example-container" [hasBackdrop]="false">
+    <mat-drawer #drawer mode="side" >
+        <app-ticket>
+
+        </app-ticket>
+    </mat-drawer>
+    
+    <mat-drawer-content>
+
+            <mat-icon *ngIf="drawer.opened==false" (click)="drawer.toggle()">arrow_forward_ios</mat-icon>
+            <mat-icon *ngIf="drawer.opened==true" (click)="drawer.toggle()" class="arrow_back">arrow_back_ios</mat-icon>
+
+        <app-products [crud]="crud">
+
+        </app-products>
+
+    </mat-drawer-content>
+</mat-drawer-container>

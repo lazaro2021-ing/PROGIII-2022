@@ -1,0 +1,17 @@
+.textarea{
+    width: 100% !important;
+}
+
+.input-supplier{
+    width: 70% !important;
+}
+
+.button-account{
+    padding: 0px;
+    
+}
+button{
+    display: flex;
+    float: right;
+    margin: 2px;
+}

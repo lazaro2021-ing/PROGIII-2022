@@ -1,0 +1,45 @@
+<mat-toolbar>
+    <span   [routerLink]="''">{{toolbarName}}</span>
+    <span class="spacer">
+
+    </span>
+    
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="'/sell'">
+            <mat-icon> attach_money</mat-icon>
+            <span>Vender</span>
+        </button>
+        <button mat-menu-item [routerLink]="'/sale'">
+            <mat-icon>arrow_downward</mat-icon>
+            <span>Ventas</span>
+        </button>
+        <button mat-menu-item [routerLink]="'/products'">
+            <mat-icon>store</mat-icon>
+            <span>Productos</span>
+        </button>
+        <button mat-menu-item [routerLink]="'/suppliers'">
+            <mat-icon>face</mat-icon>
+            <span>Proveedores</span>
+        </button>
+        <button mat-menu-item [routerLink]="'/clients'">
+            <mat-icon>face</mat-icon>
+            <span>Clientes</span>
+        </button>
+        <button mat-menu-item [routerLink]="'/report'">
+            <mat-icon> show_chart</mat-icon>
+            <span>Informes</span>
+            
+        </button>
+       
+       
+    </mat-menu>
+   
+    
+</mat-toolbar>
+
+
+    
+

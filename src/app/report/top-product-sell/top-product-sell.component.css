@@ -1,0 +1,15 @@
+canvas{
+    width: 800px  !important;
+    height: 800px  !important;
+    margin-left: 150px;
+}
+
+mat-button-toggle-group{
+    margin-left: 50px;
+}
+
+h1{
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+}

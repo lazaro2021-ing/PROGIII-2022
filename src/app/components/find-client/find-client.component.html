@@ -1,0 +1,34 @@
+<form [formGroup]="find_options">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="name" (input)="findClient()">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Numero Doc.</mat-label>
+        <input matInput formControlName="numero" (input)="findClient()">
+      </mat-form-field>
+
+  
+      <mat-form-field>
+        <mat-label>Tipo</mat-label>
+        <mat-select value="DNI" (selectionChange)="typeDoumentSelect($event)" formControlName="type">
+          <mat-option value="DNI">
+            DNI
+          </mat-option>
+          <mat-option value="LC">
+            LC
+          </mat-option>
+          <mat-option value="LE">
+            LE
+          </mat-option>
+          <mat-option value="CI">
+            CI
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <button mat-button (click)="openDialog()">
+        <mat-icon>group_add</mat-icon>
+      </button>
+    </form>

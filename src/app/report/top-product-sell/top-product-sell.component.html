@@ -1,0 +1,20 @@
+<h1>
+    Top 10 de productos vendidos en {{year_selected}}
+</h1> 
+
+<div>
+    <div>
+        <mat-button-toggle-group>
+            <mat-button-toggle mat-stroked-button color *ngFor="let year of years" (click)="topYear(year)">{{year}}</mat-button-toggle>
+        </mat-button-toggle-group>
+      <div class="chart">
+        <canvas baseChart
+                [data]="pieChartData"
+                [type]="pieChartType"
+                [options]="pieChartOptions"
+                [plugins]="pieChartPlugins"
+              >
+        </canvas>
+      </div>
+    </div>
+  </div>

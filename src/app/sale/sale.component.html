@@ -1,0 +1,16 @@
+<div >
+    <mat-toolbar   >
+        <span >Buscar Ticket</span>
+        <span class="spacer">
+        </span>
+    </mat-toolbar>
+    <ng-container>
+        <app-find-ticket (findTicketClick)="findTicket($event)" ></app-find-ticket>
+        <app-card-sale-ticket *ngFor="let ticket of tickets" [ticket]="ticket">
+
+    </app-card-sale-ticket>
+
+    
+     
+    </ng-container>
+</div>

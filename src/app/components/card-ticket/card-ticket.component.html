@@ -1,0 +1,36 @@
+<mat-card class="card">
+
+
+    <mat-card-header>
+        <mat-card-title>
+
+
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+
+                <button mat-menu-item (click)="updateTicket('delete')">
+                    <mat-icon>delete</mat-icon>
+                    <span>Borrar</span>
+                </button>
+            </mat-menu>
+            {{product.name|slice:0:20}}
+
+
+        </mat-card-title>
+        <mat-card-subtitle>Codigo:{{product.code|slice:0:10}}</mat-card-subtitle>
+        <mat-card-subtitle>Precio:{{product.price_Now|currency}}</mat-card-subtitle>
+        <mat-card-subtitle>
+                Cantidad:<input [(ngModel)]="quantity" (input)="updateTicket('setQuantity')"
+                placeholder="{{product.quantity}}" value="{{product.quantity}}"  >
+            <mat-icon (click)="updateTicket('addQuantity')">add</mat-icon>
+            <mat-icon (click)="updateTicket('removeQuantity')">remove</mat-icon>
+        </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-footer>
+        <h3>SubTotal:{{product.price_Now*product.quantity|currency}}</h3>
+    </mat-card-footer>
+
+</mat-card>

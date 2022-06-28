@@ -1,0 +1,42 @@
+h1{
+    font-family:'Fredericka the Great', cursive, sans-serif;
+    font-size: 9rem;
+    color:rgb(148, 8, 8);
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+h3{
+    font-family:'Fredericka the Great', cursive, sans-serif;
+    color:rgb(148, 8, 8);
+    font-size: 3rem;
+    text-align: center;
+}
+
+    
+
+.bannerArea{
+    margin-top: 300px;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+}
+
+@media (max-width:1000px) {
+    h1{
+        font-family:'Fredericka the Great', cursive, sans-serif;
+        font-size: 5rem;
+        color:rgb(148, 8, 8);
+    }
+    
+    h3{
+        font-family:'Fredericka the Great', cursive, sans-serif;
+        color:rgb(148, 8, 8);
+        font-size: 2rem;
+    }
+}
+
+body{
+}

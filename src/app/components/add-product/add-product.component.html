@@ -1,0 +1,125 @@
+<mat-toolbar>
+    <span routerLink="" *ngIf="is_update==false">Agregar Producto</span>
+    <span routerLink="" *ngIf="is_update==true">Actualizar Producto</span>
+</mat-toolbar>
+
+<form [formGroup]="formProduct" (ngSubmit)="saveProduct()">
+    <table>
+
+        <tr>
+            <td >
+                <mat-form-field>
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="name">
+                    <mat-error *ngIf="name && name.invalid && name.hasError('required')">Obligatorio.</mat-error>
+                    <mat-error *ngIf="name && name.invalid && name.hasError('pattern')">Solo puede contener letras.
+                    </mat-error>
+                   
+                    <mat-error *ngIf="name && name.invalid && name.hasError('maxlength')">Tiene que ser menor a 100.
+                    </mat-error>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field>
+                    <mat-label>Tipo</mat-label>
+                    <mat-select  [formControlName]="'type'" >
+                        <mat-option *ngFor="let item of typesProduct" [value]="item.id">
+                            {{item.type}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="type && type.invalid && type.hasError('required')">Obligatorio.</mat-error>
+                </mat-form-field>
+            </td>
+
+            <td>
+                <mat-form-field>
+                    <mat-label>Unidad</mat-label>
+                    <mat-select  [formControlName]="'unit'">
+                        <mat-option *ngFor="let item of unitsProduct" [value]="item.id">
+                            {{item.unit}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="unit && unit.invalid && unit.hasError('required')">Obligatorio.</mat-error>
+
+                </mat-form-field>
+            </td>
+
+
+
+
+        </tr>
+        <tr>
+            <td colspan="3">
+
+                <mat-form-field appearance="fill" class="textarea">
+                    <mat-label>Detalle</mat-label>
+                    <textarea matInput formControlName="detail"></textarea>
+                    <mat-error *ngIf="detail && detail.invalid && detail.hasError('maxlength')">Tiene que ser menor a
+                        150.</mat-error>
+                    <mat-error *ngIf="detail && detail.invalid && detail.hasError('minlength')">Tiene que ser mayor a
+                        10.</mat-error>
+
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field>
+                    <mat-label>Precio Compra</mat-label>
+                    <input matInput formControlName="price_Buy"  (ngModelChange)="priceBuyChange($event)">
+                    <mat-error *ngIf="price_Buy && price_Buy.invalid && price_Buy.hasError('required')">Obligatorio.
+                    </mat-error>
+                    <mat-error *ngIf="price_Buy && price_Buy.invalid && price_Buy.hasError('pattern')">Solo puede
+                        contener números.</mat-error>
+                </mat-form-field>
+            </td>
+
+
+            <td>
+                <mat-form-field>
+                    <mat-label>% Ganancia</mat-label>
+                    <mat-select (selectionChange)="percentSelect($event)" formControlName="percent">
+                        <mat-option *ngFor="let item of [5,10,15,20,25,30,40,50,60,70,80,90,100]" [value]="item">
+                            {{item}}%
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="percent && percent.invalid && percent.hasError('required')">Obligatorio.</mat-error>
+
+                </mat-form-field>
+            </td>
+
+            <td>
+                <mat-form-field>
+                    <mat-label>Precio Venta</mat-label>
+                    <input matInput formControlName="price_Sell" [readonly]="true" >
+                </mat-form-field>
+            </td>
+            
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field>
+                    <mat-label>Stock</mat-label>
+                    <input matInput formControlName="stock" >
+                    <mat-error *ngIf="stock && stock.invalid && stock.hasError('required')">Obligatorio.
+                    </mat-error>
+                    <mat-error *ngIf="stock && stock.invalid && stock.hasError('pattern')">Solo puede contener números.</mat-error>
+                </mat-form-field>
+            </td>
+
+            <td>
+                <mat-form-field class="input-supplier">
+                    <mat-label>Proveedor</mat-label>
+                    <input matInput formControlName="supplier" >
+                   
+                </mat-form-field>
+                <button mat-button class="button-account" (click)="openSuppliers()">
+                    <mat-icon>account_circle</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </table>
+    <button type="submit" mat-raised-button color="primary"  [disabled]="!formProduct.valid"  *ngIf="is_update==false">Guardar Producto</button>
+    <button type="submit"  mat-raised-button color="primary" [disabled]="!formProduct.valid" *ngIf="is_update==true">Actualizar Producto</button>
+<button mat-raised-button color="primary"  mat-dialog-close>Cerrar</button>
+</form>

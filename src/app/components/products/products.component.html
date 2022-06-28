@@ -1,0 +1,17 @@
+
+<div >
+    <mat-toolbar >
+        <span >Buscar Producto</span>
+       
+    </mat-toolbar>
+    <ng-container>
+        <app-find-product (findProductClick)="findProduct($event)" [typesProduct]="typesProduct" [crud]="crud">
+
+        </app-find-product>
+        <app-card-product (addProductoToTicketClick)="addProductToTicketClick($event)"  *ngFor="let product of products|slice:0:10"
+        [product]="product" [typesProduct]="typesProduct" [unitsProduct]="unitsProduct" [crud]="crud">
+
+    </app-card-product>
+</ng-container>
+</div>
+

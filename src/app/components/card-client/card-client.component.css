@@ -1,0 +1,41 @@
+mat-card-header{
+    display: flex !important;
+    align-items: center;
+    padding: 5px;
+}
+
+mat-expansion-panel-header{
+    background-color: rgb(212, 212, 212);
+    width: 400px;
+    height:30px !important;
+   
+}
+
+mat-card{
+    padding: 0px;
+}
+
+.card{
+    padding: 3px;
+    display: flex;
+    margin: 3px;  
+}
+
+.card-2{
+    display: flex !important;
+    width: 40% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin: 5px;
+    
+}
+mat-checkbox {
+    width: 25px !important;
+    height: 25px !important;; 
+}
+
+button:focus{
+    border: 2px solid rgba(0, 0, 255, 0.555) ;
+    padding: -5px;
+}
+

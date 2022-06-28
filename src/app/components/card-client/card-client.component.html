@@ -1,0 +1,48 @@
+<mat-card [ngClass]="{'card-2':father==='window','card':father==='dialog'}" >
+
+    <mat-card-header>
+        <mat-card-title>
+            <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="crud==true" >
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="editClient(client)">
+                    <mat-icon>edit</mat-icon>
+                    <span>Editar</span>
+                </button>
+                <button mat-menu-item >
+                    <mat-icon>delete</mat-icon>
+                    <span>Borrar</span>
+                </button>
+            </mat-menu>
+            
+        </mat-card-title>
+        
+        <mat-expansion-panel  (closed)="openPanelChange()" (opened)="openPanelChange()">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{client.name|slice:0:20}}
+                </mat-panel-title>
+                <mat-panel-description>
+                   Información
+                </mat-panel-description>
+              
+            </mat-expansion-panel-header>
+                <mat-card-subtitle><strong>Email:</strong> {{client.email}}</mat-card-subtitle>
+                <mat-card-subtitle><strong>Telefono:</strong> {{client.telephone}}</mat-card-subtitle>
+                <mat-card-subtitle><strong>{{client.document_type}}: </strong>{{client.document_number}}</mat-card-subtitle>
+                <mat-card-subtitle *ngIf="address"><strong>Dirección:</strong>{{address.street}}  <strong>Nº</strong> {{address.number}} </mat-card-subtitle>
+                <mat-card-subtitle *ngIf="address"><strong>Piso:</strong> {{address.floor}} <strong>Apartamento:</strong> {{address.apartment}}</mat-card-subtitle>
+                <mat-card-subtitle *ngIf="geoData"><strong>Provincia:</strong> {{geoData.province.name}} <strong>Departamento: </strong>{{geoData.state.name}} </mat-card-subtitle>
+                <mat-card-subtitle *ngIf="geoData"><strong>Ciudad:</strong> {{geoData.city.name}}  </mat-card-subtitle>
+               
+               
+        </mat-expansion-panel>
+        
+            <button *ngIf="father==='dialog' && is_client==true" mat-button color="primary" (click)="clientConfirm()" clickable><mat-icon>account_circle</mat-icon></button>
+            <button *ngIf="father==='dialog' && is_supplier==true" mat-button color="primary" (click)="supplierConfirm()" clickable><mat-icon>account_circle</mat-icon></button>
+           
+    </mat-card-header>
+  
+    
+</mat-card>

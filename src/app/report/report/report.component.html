@@ -1,0 +1,32 @@
+<ng-container>
+
+    <mat-drawer-container  [hasBackdrop]="false">
+        <mat-drawer #drawer mode="side" opened>
+            <button mat-stroked-button (click)="topTenProductsChart()">
+                <mat-icon>bar_chart</mat-icon>
+                Top 10 Productos
+            </button>
+            <button mat-stroked-button (click)="profitChart()">
+                <mat-icon>bar_chart</mat-icon>
+                Ganancias
+            </button>
+            <button mat-stroked-button (click)="clientMap()">
+                <mat-icon>face</mat-icon>
+                Mapa de Clientes
+
+            </button>
+        </mat-drawer>
+        <mat-drawer-content>
+
+            <mat-icon *ngIf="drawer.opened==false" (click)="drawer.toggle()" class="arrow">arrow_forward_ios</mat-icon>
+            <mat-icon *ngIf="drawer.opened==true" (click)="drawer.toggle()" class="arrow back">arrow_back_ios</mat-icon>
+            <mat-spinner *ngIf="progres==true" aling="center"></mat-spinner>
+
+            <app-profit *ngIf="graph_profit" [profit_data]="profit_data" [profit_data_month]="profit_data_month"></app-profit>
+            <app-top-product-sell *ngIf="graph_top_ten_product" [data]="top_ten_product_data"> </app-top-product-sell>
+            <app-province-count-client *ngIf="graph_client_map" [province_data]="province_data"> </app-province-count-client>
+
+        </mat-drawer-content>
+    </mat-drawer-container>
+
+</ng-container>

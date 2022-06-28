@@ -1,0 +1,15 @@
+{
+    "/api/*": {
+        "target": "http://localhost:35339",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin":true
+    },
+
+    "/api/tickets/*": {
+        "target": "http://localhost:35339/tickets",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin":true
+    }
+}

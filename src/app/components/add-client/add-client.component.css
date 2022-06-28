@@ -1,0 +1,9 @@
+button{
+    display: flex;
+    float: right;
+    margin: 2px;
+}
+
+table{
+    margin-top: 5px;
+}
