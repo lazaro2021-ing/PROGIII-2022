@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LZR\\Desktop\\final-progIII\\API-PROGIII\\API-PROGIII\\API-PROGIII.csproj": {}
+    "C:\\Users\\LZR\\Desktop\\final-progIII\\PROGIII-2022\\API-PROGIII\\API-PROGIII\\API-PROGIII.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LZR\\Desktop\\final-progIII\\API-PROGIII\\API-PROGIII\\API-PROGIII.csproj": {
+    "C:\\Users\\LZR\\Desktop\\final-progIII\\PROGIII-2022\\API-PROGIII\\API-PROGIII\\API-PROGIII.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LZR\\Desktop\\final-progIII\\API-PROGIII\\API-PROGIII\\API-PROGIII.csproj",
+        "projectUniqueName": "C:\\Users\\LZR\\Desktop\\final-progIII\\PROGIII-2022\\API-PROGIII\\API-PROGIII\\API-PROGIII.csproj",
         "projectName": "API-PROGIII",
-        "projectPath": "C:\\Users\\LZR\\Desktop\\final-progIII\\API-PROGIII\\API-PROGIII\\API-PROGIII.csproj",
+        "projectPath": "C:\\Users\\LZR\\Desktop\\final-progIII\\PROGIII-2022\\API-PROGIII\\API-PROGIII\\API-PROGIII.csproj",
         "packagesPath": "C:\\Users\\LZR\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LZR\\Desktop\\final-progIII\\API-PROGIII\\API-PROGIII\\obj\\",
+        "outputPath": "C:\\Users\\LZR\\Desktop\\final-progIII\\PROGIII-2022\\API-PROGIII\\API-PROGIII\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LZR\\AppData\\Roaming\\NuGet\\NuGet.Config",
