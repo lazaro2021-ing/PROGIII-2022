@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { async, Observable, Subject } from 'rxjs';
 import { Operation } from '../interfaces/operation.interface';
 import { Person } from '../interfaces/person.interface';
 import { Product, ProductType } from '../interfaces/product.interface';
 import { TableProfit, TableProvince, TicketSimple } from '../interfaces/ticket-simple.interface';
 import { environment } from 'src/environments/environment';
 import { FormGroup } from '@angular/forms';
+import { OperationService } from './operation.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,7 @@ export class TicketService implements OnInit {
   ticket: TicketSimple = {} as TicketSimple;
   ticketSubjet = new Subject<TicketSimple>();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private operationService:OperationService) {
     this.ngOnInit();
   }
 
@@ -70,21 +71,33 @@ export class TicketService implements OnInit {
     });
   }
 
-  //guarda los detalles del ticket
-  postTicketOperation(id_ticket:number):void{
-    this.ticket.products.forEach((prod:Product) => {
-      return this.http.post<Operation>(`${environment.apiUrl}/operations`, {
-       quantity:prod.quantity,
-       fK_Product:prod.id,
-       fk_Ticket:id_ticket,
-       fK_Type_Operaciont:0
-      }).subscribe({
-        next:(data)=>console.log(data)
-      });
-    });
+  recurse(id_ticket:number,product:any): void{
 
-    
+    this.http.post<Operation>(`${environment.apiUrl}/operations`, {
+      quantity: product[0].quantity,
+      fK_Product: product[0].id,
+      fk_Ticket: id_ticket,
+      fK_Type_Operaciont: 0
+    }).subscribe({
+      next: (result: Operation) => {
+       console.log(result)
+      },
+      complete: () => {
+        if(product.length!=1){
+          product.shift();
+          this.recurse(id_ticket,product)
+        }
+        
+      }
+    }
+    )
   }
+  //guarda los detalles del ticket
+   postTicketOperation(id_ticket:number){
+    this.recurse(id_ticket,this.ticket.products)
+  }
+    
+  
 
   get ticket$(): Observable<TicketSimple> {
     return this.ticketSubjet.asObservable();

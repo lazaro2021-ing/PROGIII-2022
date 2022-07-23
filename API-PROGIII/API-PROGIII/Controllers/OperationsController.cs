@@ -1,4 +1,4 @@
-﻿#nullable disable
+#nullable disable
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,24 +84,30 @@ namespace API_PROGIII.Controllers
             return NoContent();
         }
 
-        // POST: api/Operations
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Operation>> PostOperation(Operation operation)
+    // POST: api/Operations
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+   
+    [HttpPost]
+    public async Task<ActionResult<Operation>> PostOperation(Operation operation)
+    {
+        try
         {
-            try
-            {
-                var res = await _iOperation.Create(operation);
-                return CreatedAtAction("GetOperation", new { id = operation.Id }, res);
-            }
-            catch (Exception)
-            {
-                return BadRequest();
-            }
+            var res = await _iOperation.Create(operation);
+            return CreatedAtAction("GetOperation", new { id = operation.Id }, res);
         }
+        catch (Exception)
+        {
+            return BadRequest();
+        }
+    }
+   
 
-        // DELETE: api/Operations/5
-        [HttpDelete("{id}")]
+   
+
+
+
+    // DELETE: api/Operations/5
+    [HttpDelete("{id}")]
         public async Task<bool> DeleteOperation(int id)
         {
            

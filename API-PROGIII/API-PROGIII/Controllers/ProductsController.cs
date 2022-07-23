@@ -1,4 +1,4 @@
-﻿#nullable disable
+#nullable disable
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,15 +53,10 @@ namespace API_PROGIII.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
-            try
-            {
+            
                 var personR = await _iProduct.Create(product);
                 return CreatedAtAction("GetProducts", new { id = product.Id }, personR);
-            }
-            catch (Exception)
-            {
-                return BadRequest();
-            }
+            
         }
 
        

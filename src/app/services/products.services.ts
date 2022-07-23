@@ -31,7 +31,6 @@ export class ProductsService {
     
     return this.http.post<Product>(`${environment.apiUrl}/products`, {
       name: product.value.name,
-      code:"1233333333333333"+product.value.name,
       stock: parseInt(product.value.stock),
       price_Now: parseFloat( product.value.price_Sell),
       detail: product.value.detail,
@@ -46,9 +45,8 @@ export class ProductsService {
   //actualiza un producto
   updateProduct(product:FormGroup): Observable<Product>{
     return this.http.put<Product>(`${environment.apiUrl}/products/${product.value.id}`, {
-      id:product.value.id,
+  
       name: product.value.name,
-      code:"1233333333333333"+product.value.name,
       stock: parseInt(product.value.stock),
       price_Now: parseFloat( product.value.price_Sell),
       detail: product.value.detail,

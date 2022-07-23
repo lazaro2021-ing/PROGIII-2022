@@ -19,7 +19,7 @@
 
 
         </mat-card-title>
-        <mat-card-subtitle>Codigo:{{product.code|slice:0:10}}</mat-card-subtitle>
+        <mat-card-subtitle>Codigo:{{product.code}}</mat-card-subtitle>
         <mat-card-subtitle>Precio:{{product.price_Now|currency}}</mat-card-subtitle>
         <mat-card-subtitle>
                 Cantidad:<input [(ngModel)]="quantity" (input)="updateTicket('setQuantity')"

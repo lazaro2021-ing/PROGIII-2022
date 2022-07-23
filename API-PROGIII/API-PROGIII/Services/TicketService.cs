@@ -1,4 +1,4 @@
-﻿using API_PROGIII.Interfaces;
+using API_PROGIII.Interfaces;
 using API_PROGIII.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -85,7 +85,7 @@ namespace API_PROGIII.Services
         public async  Task<ActionResult<IEnumerable<Ticket>>> FindAll(string start,string end,string document)
         {
            var person=await _context.Person.Where(p => p.document_number == document).FirstAsync();
-            return await _context.Ticket.Where(p => p.FK_Person == person.Id).Where(p=>p.Date>= DateTime.Parse(start)).Where(p => p.Date<= DateTime.Parse(end)).ToListAsync();
+            return await _context.Ticket.Where(p => p.FK_Person == person.Id).Where(p=>p.Date>= DateTime.Parse(start)).Where(p => p.Date<= DateTime.Parse(end)).OrderByDescending(x => x.Date).ToListAsync();
         }
     }
 }
