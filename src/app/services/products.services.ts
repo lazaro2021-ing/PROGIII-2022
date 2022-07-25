@@ -45,7 +45,7 @@ export class ProductsService {
   //actualiza un producto
   updateProduct(product:FormGroup): Observable<Product>{
     return this.http.put<Product>(`${environment.apiUrl}/products/${product.value.id}`, {
-  
+      id:product.value.id,
       name: product.value.name,
       stock: parseInt(product.value.stock),
       price_Now: parseFloat( product.value.price_Sell),

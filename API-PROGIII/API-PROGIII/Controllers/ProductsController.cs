@@ -61,7 +61,7 @@ namespace API_PROGIII.Controllers
 
        
         [HttpPut("{id}")]
-        public async Task<ActionResult<Product>> PutPerson(int id, Product product)
+        public async Task<ActionResult<Product>> PutProduct(int id, Product product)
         {
             if (id != product.Id)
             {
