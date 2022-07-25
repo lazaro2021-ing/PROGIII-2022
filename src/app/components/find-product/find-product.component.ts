@@ -55,7 +55,8 @@ export class FindProductComponent implements OnInit {
     const dialogRef = this.dialog.open(AddProductComponent);
    
     dialogRef.afterClosed().subscribe(result => {
-    
+      window.location.reload()
+
     });
   }
 }

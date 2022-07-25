@@ -46,7 +46,7 @@ export class FindClientComponent implements OnInit {
     dialogRef.componentInstance.is_supplier=this.is_supplier;
     
     dialogRef.afterClosed().subscribe(result => {
-    
+      window.location.reload()
     });
   }
 }
