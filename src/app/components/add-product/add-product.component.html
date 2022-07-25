@@ -121,5 +121,7 @@
     </table>
     <button type="submit" mat-raised-button color="primary"  [disabled]="!formProduct.valid"  *ngIf="is_update==false">Guardar Producto</button>
     <button type="submit"  mat-raised-button color="primary" [disabled]="!formProduct.valid" *ngIf="is_update==true">Actualizar Producto</button>
+    
 <button mat-raised-button color="primary"  mat-dialog-close>Cerrar</button>
 </form>
+<button type="submit"  mat-raised-button color="primary" (click)="clearForm()">Limpiar</button>

@@ -6,6 +6,7 @@ import { Product } from 'src/app/interfaces/product.interface';
 import { TableProfit } from 'src/app/interfaces/ticket-simple.interface';
 import { ProductsService } from 'src/app/services/products.services';
 import DatalabelsPlugin from 'chartjs-plugin-datalabels';
+import { setting } from 'src/app/setting_app';
 
 @Component({
   selector: 'app-top-product-sell',
@@ -17,7 +18,7 @@ export class TopProductSellComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
   @Input() data!: TableProfit[];
   years!: string[];
-  year_selected: string = '2012';
+  year_selected: string =setting.year_default ;
 
   // Pie
   public pieChartOptions: ChartConfiguration['options'] = {

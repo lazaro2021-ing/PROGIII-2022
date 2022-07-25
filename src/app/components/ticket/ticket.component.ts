@@ -72,7 +72,7 @@ export class TicketComponent implements OnInit {
      this.ticketService.setCodeTicket(this.code);
      this.ticketService.postTicket().subscribe({
        next:(data:any)=>{this.ticketService.postTicketOperation(data.value.id)},
-       error:()=>{this.snackBar("Error al confirmar la venta.");},
+       error:()=>{this.snackBar("Error al confirmar la venta,debe seleccionar un cliente.");},
        complete:()=>{
          this.snackBar("Venta exitosa.");
          this.client_code="XXXXXXXXXX";

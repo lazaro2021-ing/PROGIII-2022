@@ -170,4 +170,9 @@ export class AddProductComponent implements OnInit {
       this._snackBar.ngOnDestroy();
     }, 3000);
   }
+
+  clearForm(){
+    this.formProduct.reset({})
+  
+  }
 }
